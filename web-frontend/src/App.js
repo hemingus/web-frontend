@@ -1,10 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import ShufflingImage from './components/imageComponents/ShufflingImage';
+
 
 function App() {
   return (
-    <div className="App">
+    <div className="App"> 
       <header className="App-header">
+        <Header />
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -18,6 +23,10 @@ function App() {
           Learn React
         </a>
       </header>
+      <ShufflingImage />
+      <footer className="App-footer">
+        <Footer />
+      </footer>
     </div>
   );
 }
