@@ -1,0 +1,17 @@
+@media (prefers-reduced-motion: no-preference) {
+    .ShufflingImage {
+      animation: FadeIn infinite 3s;
+    }
+}
+
+.ShufflingImage {
+    width: auto;
+    height: 400px;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes FadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}

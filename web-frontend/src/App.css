@@ -12,19 +12,6 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-  .App-shufflingimages {
-    animation: App-fadeIn infinite 3s;
-  }
-}
-
-
-.App-shufflingimages {
-  width: auto;
-  height: 400px;
-  align-items: center;
-  justify-content: center;
-
-
 }
 
 .App-link {
@@ -40,7 +27,4 @@
   }
 }
 
-@keyframes App-fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
-}
+

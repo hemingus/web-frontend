@@ -1,4 +1,5 @@
 import react from "react"
+import "./ShufflingImage.css"
 import { useState, useEffect } from "react"
 
 let currentPos = 1;
@@ -18,7 +19,7 @@ const ShufflingImage = (props) => {
         
     useEffect(() => {const interval = setInterval(swapImage, 3000); return () => clearInterval(interval)},[image])
     
-    return <div><img className="App-shufflingimages" src={image}/></div> 
+    return <div><img className="ShufflingImage" src={image}/></div> 
 
     
 }
