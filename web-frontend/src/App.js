@@ -4,7 +4,6 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import ShufflingImage from './components/imageComponents/ShufflingImage';
 
-
 function App() {
   return (
     <div className="App"> 
@@ -23,10 +22,8 @@ function App() {
           Learn React
         </a>
       </header>
-      <ShufflingImage />
-      <footer className="App-footer">
-        <Footer />
-      </footer>
+      <ShufflingImage imageList={["gulkins1.jpg", "gulkins2.jpg", "hemingdrums.jpg"]} />
+      <Footer />
     </div>
   );
 }
