@@ -1,8 +1,8 @@
 import react from "react"
-import App from "../../App"
+import "./Footer.css"
 
 
 const Footer = () => {
-    return <h5 className="App-footer">ASDFSFa{Date.now()}</h5> 
+    return <h5 className="Footer">ASDFSFa{Date.now()}</h5> 
 }
 export default Footer
