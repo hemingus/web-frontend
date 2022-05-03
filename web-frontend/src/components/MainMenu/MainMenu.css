@@ -1,0 +1,9 @@
+.main-menu-ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+a {
+    color:chartreuse;
+}
