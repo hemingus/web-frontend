@@ -5,7 +5,7 @@ import "./VideoContainer.css"
 const VideoContainer = ({ embedIds }) => {
   return (
     <div className="video-container">
-      {embedIds.map(embedId => ( <YoutubeEmbed embedId={embedId}/>))}
+      {embedIds.map(embedId => ( <div className="video-elements"><YoutubeEmbed embedId={embedId}/></div>))}
     </div>
   )
   }
