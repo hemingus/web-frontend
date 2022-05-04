@@ -7,7 +7,7 @@ let currentPos = 1;
 const ShufflingImage = (props) => {
     const images = props.imageList
     
-    const [image, setImage] = useState("gulkins1.jpg")
+    const [image, setImage] = useState(images[0])
 
     function swapImage() {
         setImage(images[currentPos]);
