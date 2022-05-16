@@ -1,0 +1,23 @@
+.CommentHeader {
+    font-size: 20px;
+    color: orange;
+}
+
+.CommentField {
+    margin-right: 20px;
+}
+
+.CommentSubmit {
+    padding: 20px;
+    font-size: 20px;
+    border-width: 5px;
+    border-radius: 20px;
+    font-style: bold;
+    color: black;
+    background-color: green;
+
+}
+
+.Comments {
+
+}

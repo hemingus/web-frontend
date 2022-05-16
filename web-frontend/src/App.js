@@ -6,6 +6,7 @@ import ShufflingImage from './components/imageComponents/ShufflingImage';
 import VideoContainer from './components/VideoContainer/VideoContainer';
 import MainMenu from './components/MainMenu/MainMenu';
 import InteractiveLogo from './components/InteractiveLogo/InteractiveLogo';
+import CommentField from './components/CommentField/CommentField';
 
 const embedIds = ["HTXG2Xy0dsU", "HTXG2Xy0dsU", "HTXG2Xy0dsU", "HTXG2Xy0dsU", "HTXG2Xy0dsU", "HTXG2Xy0dsU"];
 const images = ["gulkins1.jpg", "gulkins2.jpg", "hemingdrums.jpg"];
@@ -19,6 +20,7 @@ function App() {
       <ShufflingImage imageList={images} />
       <YoutubeEmbed embedId="HTXG2Xy0dsU" />
       <VideoContainer embedIds={embedIds} />
+      <CommentField />
       <Footer />
     </div>
   );
