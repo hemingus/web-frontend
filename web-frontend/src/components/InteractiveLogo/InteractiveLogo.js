@@ -1,14 +1,15 @@
 import React from "react";
 import { useState, useEffect } from "react"
 
-function interact(soundId) {
-     
+function interact() {
+    alert("DaDa!")
 }
 
-const InteractiveLogo = ( {logoId, soundId} ) => {
-    const [] = useState();
+const InteractiveLogo = ( {logoId} ) => {
     return (
-        <div></div>
+        <div>
+            <img className="InteractiveLogo" src={logoId} onClick={() => interact()} />
+        </div>
     )
 }
 
