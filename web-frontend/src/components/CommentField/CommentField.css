@@ -1,0 +1,61 @@
+.CommentHeader {
+    font-size: 20px;
+    color: orange;
+}
+
+.CommentField {
+    margin-right: 20px;
+}
+
+[submit-tooltip] {
+    position: relative;
+}
+
+[submit-tooltip]:hover::after {
+    content: attr(submit-tooltip);
+    position: absolute;
+    margin-right: 100px;
+    padding: 5px;
+    background-color: rgb(51, 181, 34);
+    color:rgb(255, 255, 255);
+}
+.CommentSubmit {
+    
+    padding: 20px;
+    font-size: 20px;
+    border-width: 5px;
+    border-radius: 20px;
+    font-style: bold;
+    color: black;
+    background-color: green;
+    border-color: rgb(219, 168, 0);
+
+}
+
+.CommentList {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.CommentObjects {
+    display: block;
+    border-block: solid;
+    margin-right: 20px;
+    margin-top: 10px;
+    max-width: auto;
+    background-color: rgb(25, 0, 67);
+    border-color:rgb(91, 118, 138);
+    border-width: 3px;
+    border-radius: 5px;
+    padding: 10px 10px 10px 10px;
+}
+
+.Names {
+    color: yellowgreen;
+}
+
+.Comments {
+    color: rgb(79, 250, 0);
+}
