@@ -9,10 +9,10 @@ export default function Navbar() {
           Hemings Musikkhjørne
         </Link>
         <ul>
-          <CustomLink to="/planets">Starwars Planets</CustomLink>
           <CustomLink to="/videos">Music Videos</CustomLink>
+          <CustomLink to="/planets">Starwars Planets</CustomLink>
+          <CustomLink to="/characters">Starwars Characters</CustomLink>
         </ul>
-
       </nav>
     )      
 }
