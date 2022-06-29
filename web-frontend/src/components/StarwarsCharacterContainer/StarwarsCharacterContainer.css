@@ -1,0 +1,40 @@
+.starwarsCharacterContainer {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sortButton {
+    height: 50px;
+    width: 100px;
+    color:rgba(196, 229, 255, 0.795);
+    font-size: 16px;
+    border-width: 3px;
+    border-color:rgb(0, 145, 255);
+    border-radius: 20%;
+    margin-right: 5px;
+    background-color: rgb(27, 41, 41);
+}
+
+.sortButton:hover {
+    background-color: rgb(109, 46, 102);
+}
+.sortButton.active {
+    background-color: rgb(22, 100, 55);
+}
+
+.char li {
+    display: block;
+    border-block: solid;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    max-width: auto;
+    background-color: rgb(0, 56, 33);
+    border-color:rgb(91, 118, 138);
+    border-width: 3px;
+    border-radius: 5px;
+    padding: 10px 10px 10px 10px;
+}

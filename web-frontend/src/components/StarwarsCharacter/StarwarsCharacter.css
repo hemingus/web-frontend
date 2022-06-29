@@ -1,0 +1,16 @@
+.starwarsCharacter {
+    color: skyblue;
+}
+
+.char ul {
+    display: block;
+    border-block: solid;
+    margin-right: 20px;
+    margin-top: 10px;
+    max-width: auto;
+    background-color: rgb(25, 0, 67);
+    border-color:rgb(91, 118, 138);
+    border-width: 3px;
+    border-radius: 5px;
+    padding: 10px 10px 10px 10px;
+}
