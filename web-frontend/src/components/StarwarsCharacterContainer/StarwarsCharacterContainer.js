@@ -32,8 +32,8 @@ const StarwarsCharacterContainer = () => {
     return (
         <div>
             <h2 className="starwarsPlanetContainerHeader">Starwars Characters</h2>
-            <button onClick={handleSortByMass}>Sort by mass</button>
-            <button onClick={handleSortByHeight}>Sort by height</button>
+            <button className="sortButton" onClick={handleSortByMass}>Sort by mass</button>
+            <button className="sortButton" onClick={handleSortByHeight}>Sort by height</button>
             <div className="starwarsCharacterContainer">
             {chars.map((chars)=>(<StarwarsCharacter name={chars.name} height={chars.height} mass={chars.mass}/>))}
             </div>  
