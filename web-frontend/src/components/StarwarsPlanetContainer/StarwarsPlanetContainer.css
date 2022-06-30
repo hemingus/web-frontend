@@ -3,6 +3,7 @@
     flex-wrap: wrap;
     justify-content: center;
     padding-bottom: 30px;
+    background-image: url("space-background.webp");
 }
 
 .starwarsPlanetContainerHeader {
