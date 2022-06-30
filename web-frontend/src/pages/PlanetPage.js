@@ -19,6 +19,6 @@ export default function PlanetPage() {
     }
 
     return (
-        <StarwarsPlanetContainer planets={planets} />
+        <StarwarsPlanetContainer planets={planets}/>
     )
 }
