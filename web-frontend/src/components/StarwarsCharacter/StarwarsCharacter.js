@@ -1,6 +1,5 @@
 import React from 'react'
 import "./StarwarsCharacter.css"
-import { useState } from 'react'
 
 const StarwarsCharacter = ({name, height, mass, birth_year, eye_color, gender, hair_color, skin_color}) => {
 
@@ -13,8 +12,6 @@ const StarwarsCharacter = ({name, height, mass, birth_year, eye_color, gender, h
                 <li>Mass: {mass}</li>
             </ul>
         
-
-    
             <ul className="attributes">
                 <li>Birth year: {birth_year}</li>
                 <li>Eye color: {eye_color}</li>
