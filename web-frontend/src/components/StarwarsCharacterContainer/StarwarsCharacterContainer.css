@@ -4,6 +4,7 @@
     flex-wrap: wrap;
     justify-content: center;
     background-image: url("starwars-city.jpg");
+    background-size: cover;
     margin-top: 20px;
     padding-top: 70px;
     padding-bottom: 70px;
