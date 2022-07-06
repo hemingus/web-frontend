@@ -13,9 +13,9 @@ export default function HomePage() {
     return (
         <div>
             <Header />
-            <GuitarTuner />
-            <InteractiveLogo logoId="heminglogo.png" />
             <MainMenu />
+            <InteractiveLogo logoId="heminglogo.png" />
+            <GuitarTuner />
             <ShufflingImage imageList={images} />
             <CommentField />
             <Footer />

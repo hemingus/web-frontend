@@ -4,9 +4,11 @@ import "./UrlBox.css";
 
 const UrlBox = ( {urlId, text} ) => {
     return (
-        <a className="url-box" href={urlId} type="button" target="_blank">
-            {text}
-        </a>
+        <div className="url-box">
+            <a className="url-box-text" href={urlId} type="button" target="_blank" rel="noreferrer">
+                {text}
+            </a>
+        </div>
     )
 }
 
