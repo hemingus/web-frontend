@@ -1,9 +1,30 @@
 .url-box {
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 20%;
     border-style: solid;
     border-width: 5px;
-    border-color:chocolate;
-    background-color:blue;
+    border-color:rgba(100, 0, 33, 0.911);
+    background: linear-gradient(rgba(158, 5, 5, 0.582), rgb(0, 0, 0));
+
+}
+
+.url-box-text {
     font-size: 50px;
+    background: -webkit-radial-gradient(rgb(255, 255, 2), rgb(202, 141, 141));
+    background-clip: text;
+    color: transparent;
+    text-decoration: none;
+}
+
+.url-box:hover .url-box-text {
+    animation: url-box-pop forwards;
+}
+
+@keyframes url-box-pop {
+    from {background-clip: text;
+        border-radius: 0%;
+        color: transparent;}
+    to {background-clip: padding-box;
+        border-radius: 20%;
+        color: rgba(100, 0, 33, 0.911);}
 }

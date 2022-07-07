@@ -1,9 +1,75 @@
+
 .Header {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
   }
+
+.headerBox {
+  border-block: solid;
+  border-radius: 50%;
+  border-width: 10px;
+  padding: 10px 10px 10px 10px;
+  background-color: rgb(3, 57, 73);
+  background-image: url("../StarwarsCharacterContainer/starwars-city.jpg");
+  background-size: cover;
+  border-color: rgb(135, 237, 255);
+  animation-name: showHeaderBox, hideHeaderBox;
+  animation-duration: 1.5s, 10s;
+  animation-delay: 0s, 3s;
+  animation-iteration-count: 1, 1;
+
+}
+
+.headerText {
+  font-size: calc(100px);
+  color: rgb(0, 183, 255);
+  animation-name: rotateHeader, animateHeader;
+  animation-duration: 1.5s, 10s;
+  animation-delay: 0s, 3s;
+  animation-iteration-count: 1, 1;
+}
+
+.sloganText {
+  font-size: calc(0px);
+  font-family: 'Calibri';
+  font-style: italic;
+  color: white;
+  transform: translateY(-100%) scale(0%);
+  animation-name: showSloganText;
+  animation-duration: 10s;
+  animation-delay: 3s;
+  animation-iteration-count: 1;
+}
+
+@keyframes animateHeader {
+  0% {color: rgb(0, 183, 255); transform: scale(0%); opacity: 0;}
+  10% {color: rgb(255, 255, 255); transform: scale(110%); opacity: 1;}
+  15% {color: rgb(0, 183, 255);  transform: scale(100%);}
+  80% {opacity: 1;}
+  100% {opacity: 0; color: rgb(135, 237, 255);}
+}
+
+@keyframes rotateHeader {
+  from {transform: scale(0%) translateY(-1000%) rotate(0deg);}
+  to {transform: scale(100%) translateY(0%) rotate(360deg);}
+}
+
+@keyframes showHeaderBox {
+  from {transform: scale(0%); opacity: 0;}
+  to {transform: scale(100%); opacity: 1;}
+}
+
+@keyframes hideHeaderBox {
+  0% {background-image: url("../StarwarsCharacterContainer/starwars-city.jpg");}
+  20% {background-color: rgb(3, 57, 73); }
+  80% {background-color: black; background-image: url("../StarwarsPlanetContainer/space-background.webp")}
+  100% {background-color: rgb(3, 57, 73);}
+}
+
+@keyframes showSloganText {
+  0% {font-size: 0px; transform: scale(0%);}
+  70% {font-size: 100px; transform: scale(100%); opacity: 1;}
+  100% {font-size: 0px; transform: scale(0%); opacity: 0;}
+}

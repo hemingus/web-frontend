@@ -4,7 +4,10 @@ import './Header.css';
 const Header = () => {
   return (
     <header className="Header">
-      <h1>Hemings musikkhjørne!</h1>
+      <div className="headerBox">
+      <h1 className="headerText">Heming's Music Space</h1>
+      <h1 className="sloganText">~ Expand your horizon! ~</h1>
+      </div>
     </header>
   )
 }

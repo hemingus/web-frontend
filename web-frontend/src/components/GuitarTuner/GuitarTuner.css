@@ -6,7 +6,7 @@
 
 .guitarTunerContainer {
   display: inline-block;
-  background-color:rgba(66, 61, 42, 0.822);
+  background:linear-gradient(rgb(37, 31, 19), rgb(121, 75, 19), rgb(24, 21, 15));
   padding-left: 100px;
   padding-right: 100px;
   padding-bottom: 20px;

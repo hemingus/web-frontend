@@ -6,7 +6,7 @@ export default function Navbar() {
     return ( 
       <nav className="nav">
         <Link to="/" className="site-title">
-          Hemings Musikkhjørne
+          Hemings Music Space
         </Link>
         <ul>
           <CustomLink to="/videos">Music Videos</CustomLink>
