@@ -6,5 +6,5 @@ function sum(a, b) {
 }
 
 test('adds 1+2 = 3', () => {
-  expext(sum(1,2)).toBe(3);
+  expect(sum(1,2)).toBe(3);
 });
