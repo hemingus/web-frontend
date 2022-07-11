@@ -22,5 +22,21 @@
   border-style: solid;
   border-width: 2px;
   border-color:rgb(18, 50, 82);
+  animation-name: revealPlanet, rotatePlanet;
+  animation-delay: 0s, 3s;
+  animation-duration: 3s, 60s;
+  animation-iteration-count: 1, infinite;
+  animation-timing-function: linear, linear;
+}
+
+@keyframes revealPlanet {
+  from {transform: scale(0%);}
+  to {transform: scale(100%);}
+}
+
+@keyframes rotatePlanet {
+  0% {transform: rotate(0deg) scale(100%);}
+  50% {transform: rotate(180deg) scale(80%);}
+  100% {transform: rotate(360deg) scale(100%);}
 }
 
