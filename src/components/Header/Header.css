@@ -64,7 +64,7 @@
 @keyframes hideHeaderBox {
   0% {background-image: url("../StarwarsCharacterContainer/starwars-city.jpg");}
   20% {background-color: rgb(3, 57, 73); }
-  80% {background-color: black; background-image: url("../StarwarsPlanetContainer/space-background.webp")}
+  80% {background-color: black; background-image: url("../StarwarsPlanetContainer/space-background.jpg")}
   100% {background-color: rgb(3, 57, 73);}
 }
 
