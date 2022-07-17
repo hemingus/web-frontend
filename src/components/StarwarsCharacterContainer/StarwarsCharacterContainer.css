@@ -10,6 +10,31 @@
     padding-bottom: 70px;
 }
 
+.search {
+    height: 40px;
+    width: 160px;
+    font-size: 20px;
+    margin-right: 10px;
+    border-width: 3px;
+    border-radius: 10%;
+    border-color:rgb(52, 207, 52);
+    background-color: rgb(138, 185, 155);
+}
+
+.clearButton {
+    height: 30px;
+    width: 60px;
+    color: rgb(140, 255, 87);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+    border-width: 1px;
+    border-color: rgb(0, 110, 6);
+    border-radius: 50%;
+    margin-right: 20px;
+    background: linear-gradient(rgb(52, 207, 52), rgb(0, 0, 0));
+    cursor: pointer;
+}
+
 .sortButton {
     height: 50px;
     width: 100px;
@@ -21,6 +46,13 @@
     border-radius: 20%;
     margin-right: 5px;
     background-color: rgb(27, 41, 41);
+    cursor: pointer;
+}
+
+.clearButton:hover {
+    border-width: 2px;
+    border-color:rgb(52, 207, 52);
+    box-shadow: 0 0 10px rgb(52, 207, 52);
 }
 
 .sortButton:hover {
