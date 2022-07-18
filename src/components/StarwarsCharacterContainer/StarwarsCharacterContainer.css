@@ -76,3 +76,14 @@
     border-radius: 5px;
     padding: 10px 10px 10px 10px;
 }
+
+.loading {
+    font-size: 30px;
+    color: green;
+    animation: loadingAnimation 1s infinite;
+}
+
+@keyframes loadingAnimation {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
