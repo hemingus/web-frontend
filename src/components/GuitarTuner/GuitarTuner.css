@@ -92,3 +92,53 @@
   width: 400px;
   background-color:rgb(124, 124, 145);
 }
+
+.loopingOff {
+  height: 40px;
+  width: 80px;
+  font-size: 16px;
+  font-style: italic;
+  border-color: rgb(187, 59, 0);
+  border-radius: 50%;
+  margin-right: 20px;
+  color: rgba(255, 255, 255, 0.623);
+  background: linear-gradient(brown, black);
+  cursor: pointer;
+}
+
+.loopingOn {
+  height: 40px;
+  width: 80px;
+  font-size: 16px;
+  font-style: italic;
+  border-color:rgb(102, 255, 0);
+  border-radius: 50%;
+  margin-right: 20px;
+  color: rgb(255, 255, 255);
+  background: linear-gradient(rgb(102, 255, 0), rgb(0, 0, 0));
+  box-shadow: 0 0 15px green;
+  cursor: pointer;
+}
+
+.loopingOff:hover {
+  box-shadow: 0 0 10px goldenrod;
+}
+
+.loopingOn:hover {
+  box-shadow: 0 0 15px goldenrod;
+}
+
+.stopButton {
+  height: 50px;
+  width: 50px;
+  border-color: silver;
+  border-radius: 50%;
+  color: rgb(141, 0, 0);
+  font-weight: bold;
+  background: linear-gradient(rgb(0, 0, 0), rgb(70, 70, 70));
+  cursor: pointer;
+}
+
+.stopButton:hover {
+  box-shadow: 0 0 10px rgb(255, 72, 0);
+}

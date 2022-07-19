@@ -1,4 +1,5 @@
 import React from 'react';
+import {useState} from 'react';
 import {Howl, Howler} from 'howler';
 import "./GuitarTuner.css";
 import LowEstring from "../../sounds/low-E-string.mp3";
@@ -18,13 +19,39 @@ const audioClips = [
 ]
 
 const GuitarTuner = () => {
+
+    const [looping, setLooping] = useState(false);
+
+    const stopAllSounds = () => {
+        Howler.stop();
+    }
+
+    const toggleLooping = () => {
+        if (looping) {
+            setLooping(false);
+        }
+        else {
+            setLooping(true);
+        }
+    }
+
+    const loopOnOff = () => {
+        if (looping) {
+            return "Loop On"
+        }
+        else {
+            return "Loop Off"
+        }
+    }
+
     const PlaySound = (src) => {
         const sound = new Howl({
-            src
+            src,
+            loop: looping
         })
-        sound.play();
-
+            sound.play();
     }
+
     const Strings = () => {
         return audioClips.map((string, index) => {
             return (
@@ -38,14 +65,13 @@ const GuitarTuner = () => {
     return (
         <div className="guitarTunerContainer">
         <h1 className="guitarTunerHeader">Guitar Tuner</h1>
+        <button className={looping? "loopingOn" : "loopingOff"} onClick={toggleLooping}>{loopOnOff()}</button>
+        <button className="stopButton" onClick={stopAllSounds}>STOP</button>
         <div className="guitarTuner">
             {Strings()}
         </div>
         </div>
     )
-
-
-
 }
 
 export default GuitarTuner
