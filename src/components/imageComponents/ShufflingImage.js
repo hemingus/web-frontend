@@ -6,22 +6,20 @@ let currentPos = 1;
 
 const ShufflingImage = (props) => {
     const images = props.imageList
-    
     const [image, setImage] = useState(images[0])
-
-    function swapImage() {
-        setImage(images[currentPos]);
-        if (++currentPos >= images.length) {
-            currentPos = 0;
+   
+    useEffect(() => {
+        function swapImage() {
+            setImage(images[currentPos]);
+            if (++currentPos >= images.length) {
+                currentPos = 0;
+            }   
         }
+        const interval = setInterval(swapImage, 3000); return () => clearInterval(interval)}, [image, images])
         
-    }
-        
-    useEffect(() => {const interval = setInterval(swapImage, 3000); return () => clearInterval(interval)},[image])
-    
-    return <div><img className="ShufflingImage" src={image}/></div> 
-
-    
+        return (
+        <div><img className="ShufflingImage" src={image} alt="ShufflingImage"/></div> 
+        )
 }
 
 export default ShufflingImage

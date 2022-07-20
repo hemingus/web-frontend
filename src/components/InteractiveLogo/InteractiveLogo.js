@@ -1,5 +1,4 @@
 import React from "react";
-import { useState, useEffect } from "react"
 
 function interact() {
     alert("DaDa!")
@@ -8,7 +7,7 @@ function interact() {
 const InteractiveLogo = ( {logoId} ) => {
     return (
         <div>
-            <img className="InteractiveLogo" src={logoId} onClick={() => interact()} />
+            <img className="InteractiveLogo" src={logoId} alt="Logo" onClick={() => interact()} />
         </div>
     )
 }
