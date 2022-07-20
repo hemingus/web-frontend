@@ -6,9 +6,26 @@ import axios from 'axios'
 import {useState, useEffect} from 'react'
 
 const StarwarsCharacterContainer = () => {
+
     useEffect(() => {
+        const getChars = async (url = "https://swapi.dev/api/people", accData = []) => {
+            try {
+            const res = await axios.get(url);
+            if (res.data.next == null) {
+                accData = accData.concat(res.data.results);
+                setChars(accData);
+                setLoading(false); 
+            }
+            else {
+                accData = accData.concat(res.data.results);
+                getChars(res.data.next, accData);
+            }}
+            catch (err) {
+            alert(err.message);
+            }
+        }
         getChars();
-    })
+    }, [])
 
     const [chars, setChars] = useState([]);
     const [inputText, setInputText] = useState("");
@@ -16,23 +33,6 @@ const StarwarsCharacterContainer = () => {
     const [showNumber, setShowNumber] = useState(0);
     const pageSize = 12;
     
-    const getChars = async (url = "https://swapi.dev/api/people", accData = []) => {
-        try {
-        const res = await axios.get(url);
-        if (res.data.next == null) {
-            accData = accData.concat(res.data.results);
-            setChars(accData);
-            setLoading(false); 
-        }
-        else {
-            accData = accData.concat(res.data.results);
-            getChars(res.data.next, accData);
-        }}
-        catch (err) {
-        alert(err.message);
-        }
-    }
-
     const handleSearchInput = (event) => {
         setInputText(event.target.value);
         setShowNumber(0);
