@@ -99,10 +99,9 @@
 .pageButtonLocked {
     height: 30px;
     width: 80px;
-    color: white;
+    color: rgb(128, 128, 128);
     margin-right: 10px;
-    background: linear-gradient(rgb(21, 87, 30), green);
-    opacity: 0.5;
+    background: linear-gradient(rgb(64, 82, 66), rgb(19, 58, 19));
 }
 
 .pageButton:hover {
