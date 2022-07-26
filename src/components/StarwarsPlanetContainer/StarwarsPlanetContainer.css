@@ -1,6 +1,7 @@
 .starwarsPlanetContainer {
     display: flex;
     flex-wrap: wrap;
+    gap: 5vw;
     justify-content: center;
     padding-bottom: 30px;
     background-image: url("space-background.jpg");

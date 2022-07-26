@@ -83,7 +83,6 @@ const StarwarsCharacterContainer = () => {
 
     const showNextPage = () => {
         const number = showNumber + pageSize;
-        console.log(filterChars().length);
         if (number >= filterChars().length) {
             return
         }
@@ -111,6 +110,7 @@ const StarwarsCharacterContainer = () => {
         const numberOfChars = filterChars().length;
         const fromNumber = Math.min(showNumber + 1, numberOfChars);
         const toNumber = Math.min(showNumber + pageSize, numberOfChars);
+        
         return (
             <div className="pageInfo">
             <p style={loading ? {opacity: 0}:{opacity: 1}}>{numberOfChars} results</p>

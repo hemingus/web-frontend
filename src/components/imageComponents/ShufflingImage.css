@@ -1,3 +1,7 @@
+:root {
+    --imageSize: calc(10vw + 10vh);
+}
+
 @media (prefers-reduced-motion: no-preference) {
     .ShufflingImage {
       animation: FadeIn infinite 3s;
@@ -5,10 +9,11 @@
 }
 
 .ShufflingImage {
+    height: var(--imageSize);
     width: auto;
-    height: 400px;
     align-items: center;
     justify-content: center;
+    
 }
 
 @keyframes FadeIn {

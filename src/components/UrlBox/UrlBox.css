@@ -1,23 +1,27 @@
 .url-box {
-    padding: 10px;
-    border-radius: 20%;
+    padding: calc(0.2vw + 0.2vh);
     border-style: solid;
-    border-width: 5px;
+    border-width: 0.1vw;
     border-color:rgba(100, 0, 33, 0.911);
+    border-radius: 10%;
     background: linear-gradient(rgba(158, 5, 5, 0.582), rgb(0, 0, 0));
-
+    background-size: cover;
 }
 
 .url-box-text {
-    font-size: 50px;
+    font-size: calc(1.5vw + 1.5vh);
     background: -webkit-radial-gradient(rgb(255, 255, 2), rgb(202, 141, 141));
     background-clip: text;
+    align-items: center;
+    justify-content: center;
     color: transparent;
     text-decoration: none;
+    font-weight: bold;
 }
 
 .url-box:hover .url-box-text {
     animation: url-box-pop forwards;
+    box-shadow:0 0 calc(2vw + 2vh) rgb(255, 230, 0);
 }
 
 @keyframes url-box-pop {
@@ -25,6 +29,6 @@
         border-radius: 0%;
         color: transparent;}
     to {background-clip: padding-box;
-        border-radius: 20%;
+        border-radius: 10%;
         color: rgba(100, 0, 33, 0.911);}
 }
