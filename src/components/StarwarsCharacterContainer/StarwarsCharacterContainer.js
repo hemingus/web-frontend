@@ -58,7 +58,7 @@ const StarwarsCharacterContainer = () => {
         else {
             return (
             <div className="starwarsCharacterContainer">
-            {filterChars().slice(showNumber, showNumber+pageSize).map((chars)=>(<StarwarsCharacter name={chars.name} height={chars.height} mass={chars.mass} 
+            {filterChars().slice(showNumber, showNumber+pageSize).map((chars)=>(<StarwarsCharacter key={chars.name} name={chars.name} height={chars.height} mass={chars.mass} 
             birth_year={chars.birth_year} eye_color={chars.eye_color} gender={chars.gender} hair_color={chars.hair_color} skin_color={chars.skin_color}/>))}
             </div> 
             )
@@ -124,10 +124,13 @@ const StarwarsCharacterContainer = () => {
     return (
         <div>
             <h2 className="starwarsPlanetContainerHeader">Starwars Characters</h2>
+            
             <input id="search" className="search" onChange={handleSearchInput} type="text" placeholder="search..."/>
             <button className="clearButton" onClick={handleReset}>Clear</button>
+            <div className="sortButtonContainer">
             <button className="sortButton" onClick={handleSortByMass}>Sort by mass</button>
             <button className="sortButton" onClick={handleSortByHeight}>Sort by height</button>
+            </div>
             {characterCards()};
             {pageInfo()};
         </div>

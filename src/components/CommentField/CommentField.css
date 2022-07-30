@@ -21,10 +21,11 @@
 }
 .CommentSubmit {
     
-    padding: 20px;
+    margin-top: 2vh;
+    padding: 10px;
     font-size: 20px;
     border-width: 5px;
-    border-radius: 20px;
+    border-radius: 20%;
     font-style: bold;
     color: black;
     background-color: green;
