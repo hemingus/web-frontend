@@ -11,6 +11,13 @@
     position: relative;
 }
 
+.sortButtonContainer {
+    display: flex;
+    justify-content: center;
+    row-gap: 1vh;
+    margin-top: 1vh;
+}
+
 .search {
     height: 40px;
     width: 160px;

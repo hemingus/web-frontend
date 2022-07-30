@@ -5,6 +5,6 @@
 }
 
 .video-responsive iframe {
-  width: 853px;
-  height: 480px;
+  width: calc(30vw + 30vh);
+  height: calc(20vw + 20vh);
 }

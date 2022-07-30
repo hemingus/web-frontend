@@ -1,5 +1,5 @@
 .starwarsPlanet {
-  font-size: 20px;
+  font-size: calc(1.5vh + 0.5vw);
   font-style: italic;
   color: rgb(252, 164, 24);
   white-space: nowrap;

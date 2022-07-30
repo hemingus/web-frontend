@@ -7,7 +7,7 @@ const StarwarsPlanetContainer = ({planets}) => {
         <div>
             <h2 className="starwarsPlanetContainerHeader">Starwars Planets</h2>
             <div className="starwarsPlanetContainer">
-            {planets.map((planet)=>(<StarwarsPlanet name={planet.name} diameter={planet.diameter}/>))}
+            {planets.map((planet)=>(<StarwarsPlanet key={planet.name} name={planet.name} diameter={planet.diameter}/>))}
             </div>  
         </div>
     )
