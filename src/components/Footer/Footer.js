@@ -2,6 +2,11 @@ import "./Footer.css"
 
 
 const Footer = () => {
-    return <h5 className="Footer">ASDFSFa{Date.now()}</h5> 
-}
+    const getDate = () => {
+        const date = new Date(); 
+        return date.toDateString();
+    }
+    return ( 
+    <h5 className="Footer">{getDate()}</h5> 
+)}
 export default Footer
