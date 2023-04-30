@@ -28,6 +28,7 @@ const GuitarTuner = () => {
 
     const toggleLooping = () => {
         if (looping) {
+            Howler.stop();
             setLooping(false);
         }
         else {
