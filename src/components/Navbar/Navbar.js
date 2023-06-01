@@ -9,7 +9,7 @@ export default function Navbar() {
           Hemings Music Space
         </Link>
         <ul>
-          <CustomLink to="/videos">Music Videos</CustomLink>
+          <CustomLink to="/videos">Videos</CustomLink>
           <CustomLink to="/planets">Starwars Planets</CustomLink>
           <CustomLink to="/characters">Starwars Characters</CustomLink>
         </ul>

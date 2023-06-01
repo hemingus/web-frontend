@@ -4,10 +4,19 @@
   flex-flow: row wrap;
 }
 
+.container-header {
+  font-size: calc(1.5vw + 1.5vh);
+  font-style: italic;
+  color: rgb(8, 143, 37);
+  border-style: solid;
+  border-width: calc(0.3vw+0.2vh);
+  border-radius: 200%;
+  border-color: rgb(213, 255, 208);
+}
+
 .video-elements iframe {
   padding-left: 10px;
-  width: calc(9vw + 9vh);
-  height: calc(6vw + 6vh);
-  
+  width: calc(18vw + 18vh);
+  height: calc(12vw + 12vh);
 }
 

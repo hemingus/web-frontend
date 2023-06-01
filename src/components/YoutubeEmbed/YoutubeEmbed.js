@@ -2,8 +2,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import "./YoutubeEmbed.css"
 
-const YoutubeEmbed = ({ embedId }) => (
+const YoutubeEmbed = ({ embedId, videoTitle }) => (
   <div className="video-responsive">
+    <h1 className="title">{videoTitle}</h1>
     <iframe
       src={`https://www.youtube.com/embed/${embedId}`}
       frameBorder="0"

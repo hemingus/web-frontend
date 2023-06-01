@@ -2,9 +2,16 @@
   overflow: hidden;
   padding-top: 10px;
   padding-bottom: 10px;
+  padding-left: 20px;
 }
 
 .video-responsive iframe {
   width: calc(30vw + 30vh);
   height: calc(20vw + 20vh);
+}
+
+.title {
+  font-size: calc(1vw + 1vh);
+  font-style: italic;
+  color: chartreuse
 }
