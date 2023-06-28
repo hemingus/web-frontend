@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import PlanetPage from './pages/PlanetPage';
 import VideoPage from './pages/VideoPage';
 import CharacterPage from './pages/CharacterPage';
+import AnimationPage from './pages/AnimationPage';
 import { Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/animation" element={<AnimationPage />} />
           <Route path="/planets" element={<PlanetPage />} />
           <Route path="/videos" element={<VideoPage />} />
           <Route path="/characters" element={<CharacterPage />} />
