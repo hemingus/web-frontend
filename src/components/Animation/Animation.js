@@ -21,6 +21,7 @@ const Animation = () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
     sceneRef.current.appendChild(renderer.domElement);
 
+    // Earth sphere
     const earth_geometry = new THREE.SphereGeometry(0.5, 32, 32);
     const textureLoader = new THREE.TextureLoader();
     const earth_texture = textureLoader.load(earth_surface);
@@ -28,6 +29,7 @@ const Animation = () => {
     const earth_sphere = new THREE.Mesh(earth_geometry, earth_material);
     scene.add(earth_sphere);
 
+    // Moon sphere
     const moon_geometry = new THREE.SphereGeometry(0.1, 32, 32);
     const moon_texture = textureLoader.load(moon_surface);
     const moon_material = new THREE.MeshBasicMaterial({ map: moon_texture });
