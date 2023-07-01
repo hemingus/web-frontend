@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import "./Animation.css"
-import * as THREE from 'three';
+import {Scene, PerspectiveCamera, WebGLRenderer, SphereGeometry, TextureLoader, MeshBasicMaterial, Mesh, Vector2, Vector3} from 'three';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
@@ -15,29 +15,29 @@ const Animation = () => {
 
   useEffect(() => {
     let frameId;
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer();
+    const scene = new Scene();
+    const camera = new PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     sceneRef.current.appendChild(renderer.domElement);
 
     // Earth sphere
-    const earth_geometry = new THREE.SphereGeometry(0.5, 32, 32);
-    const textureLoader = new THREE.TextureLoader();
+    const earth_geometry = new SphereGeometry(0.5, 32, 32);
+    const textureLoader = new TextureLoader();
     const earth_texture = textureLoader.load(earth_surface);
-    const earth_material = new THREE.MeshBasicMaterial({ map: earth_texture });
-    const earth_sphere = new THREE.Mesh(earth_geometry, earth_material);
+    const earth_material = new MeshBasicMaterial({ map: earth_texture });
+    const earth_sphere = new Mesh(earth_geometry, earth_material);
     scene.add(earth_sphere);
 
     // Moon sphere
-    const moon_geometry = new THREE.SphereGeometry(0.1, 32, 32);
+    const moon_geometry = new SphereGeometry(0.1, 32, 32);
     const moon_texture = textureLoader.load(moon_surface);
-    const moon_material = new THREE.MeshBasicMaterial({ map: moon_texture });
-    const moon_sphere = new THREE.Mesh(moon_geometry, moon_material);
+    const moon_material = new MeshBasicMaterial({ map: moon_texture });
+    const moon_sphere = new Mesh(moon_geometry, moon_material);
     scene.add(moon_sphere);
 
     // Create the bloom effect
-    const bloomEffect = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
+    const bloomEffect = new UnrealBloomPass(new Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
     bloomEffect.threshold = 0; // Controls the brightness threshold for glowing
     bloomEffect.strength = 1; // Controls the strength/intensity of the glow effect
     bloomEffect.radius = 2; // Controls the size/spread of the glow effect
@@ -49,7 +49,7 @@ const Animation = () => {
 
     camera.position.z = 5;
 
-    const center = new THREE.Vector3(0, 0, 0); // Center of the circular trajectory
+    const center = new Vector3(0, 0, 0); // Center of the circular trajectory
     const radius = 2; // Radius of the circular trajectory
     const speed = 0.3; // Speed of the sphere's movement
 
