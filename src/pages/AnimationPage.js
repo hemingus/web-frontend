@@ -1,5 +1,5 @@
 import React from 'react'
-import Animation from '../components/Animation/Animation';
+import Animation from '../components/Animation/Animation.mjs';
 
 export default function AnimationPage() {
     return (
