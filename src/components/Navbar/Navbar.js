@@ -12,7 +12,6 @@ export default function Navbar() {
           <CustomLink to="/videos">Videos</CustomLink>
           <CustomLink to="/planets">Starwars Planets</CustomLink>
           <CustomLink to="/characters">Starwars Characters</CustomLink>
-          <CustomLink to="/animation">3D Animation</CustomLink>
         </ul>
       </nav>
     )      

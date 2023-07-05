@@ -1,9 +1,0 @@
-.animationHeader {
-    font-size: calc(2vw + 2vh);
-    font-style: italic;
-    color: rgb(0, 153, 255);
-    border-style: solid;
-    border-width: calc(0.3vw+0.2vh);
-    border-radius: 50%;
-    border-color: rgb(119, 161, 216);
-}
