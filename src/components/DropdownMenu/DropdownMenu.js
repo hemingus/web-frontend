@@ -1,5 +1,6 @@
 import React from 'react'
 import { CustomLink } from '../../utilities/CustomLink'
+import "./DropdownMenu.css"
 
 const DropdownMenu = ({elements}) => {
     return (

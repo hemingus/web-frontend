@@ -7,10 +7,10 @@ import Dropdown from '../DropdownMenu/Dropdown'
 export default function Navbar() {
     const StarwarsDropdownProps = [
     {
-      "title": "Starwars Planets",
+      "title": "Planets",
       "route": "/planets"},
     {
-      "title": "Starwars Characters",
+      "title": "Characters",
       "route": "/characters"}
     ]
 
@@ -22,7 +22,7 @@ export default function Navbar() {
           Hemings Music Space
         </Link>
         <ul>
-          <CustomLink to="/videos" children="VideosOSO"></CustomLink>
+          <CustomLink to="/videos" children="Videos"></CustomLink>
           <CustomLink to="/animation">3D Animation</CustomLink>
           <Dropdown title="Starwars API" elements={StarwarsDropdownProps}/>
         </ul>

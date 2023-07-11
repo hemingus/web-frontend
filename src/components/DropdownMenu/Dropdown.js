@@ -1,22 +1,14 @@
 import React from 'react'
-import {useState, useRef, useEffect} from 'react'
-import { useOnHoverOutside } from '../../utilities/onHoverEffects'
+import {useState, useRef } from 'react'
 import DropdownMenu from './DropdownMenu'
+import "./DropdownMenu.css"
 
 const Dropdown = ({title, elements}) => {
     const dropdownRef = useRef(null)
     const [isDropped, setDropped] = useState(false)
     
-    const closeDropdownMenu = () => {
-        setDropped(false)
-    }
-
-    useOnHoverOutside(dropdownRef, closeDropdownMenu)
-
-
-
     return (
-        <li onMouseOver={() => setDropped(true)}>
+        <li onMouseOver={() => setDropped(true)} onMouseLeave={() => setDropped(false)} ref={dropdownRef}>
             {title}
             {isDropped && <DropdownMenu elements={elements}/>}
         </li>

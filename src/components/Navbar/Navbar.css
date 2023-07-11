@@ -9,7 +9,6 @@
     color: rgb(0, 255, 234);
     font-style: italic;
     font-size: calc(1vh + 1vw);
-    font-display: border;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -17,6 +16,7 @@
 }
 
 .nav a {
+    border: 5px;
     text-decoration: none;
     color: inherit;
     justify-content: space-evenly;
@@ -33,6 +33,10 @@
     text-align: left;
 }
 
+.nav li {
+    padding: 5px;
+}
+
 .nav li.active {
     color: white;
     background-color: rgb(15, 36, 75);
@@ -42,6 +46,44 @@
 .nav li:hover {
     box-shadow: 0 0 10px rgb(0, 195, 255);
     background-color: rgb(15, 36, 75);
+}
+
+.nav ul ul {
+    display: block;
+    border-block: solid;
+    background-color: rgb(25, 0, 67);
+    border-color:rgb(91, 118, 138);
+    border-width: 3px;
+    border-radius: 5px;
+    color: skyblue;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: left;
+
+    position: absolute;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 0;
+    padding: 0;
+    margin-top: 5px;
+}
+
+.nav ul ul li {
+    color: green;
+    width: 100%;
+    padding: 10px;
+}
+.nav ul ul li.active {
+    color: rgb(3, 218, 57);
+    background-color: rgb(44, 110, 66);
+    box-shadow: 0 0 15px rgb(0, 195, 255);
+}
+
+.nav ul ul li:hover {
+    box-shadow: 0 0 10px rgb(229, 255, 0);
+    background-color: rgb(46, 26, 158);
 }
 
 .site-title {
