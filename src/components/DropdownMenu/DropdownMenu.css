@@ -1,0 +1,23 @@
+.dropdown ul {
+    position: relative;
+    gap: 10vw;
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap 1;
+    text-align: left;
+}
+
+.dropdown li {
+    color: red;
+}
+.dropdown li.active {
+    color: rgb(218, 3, 3);
+    background-color: rgb(204, 159, 12);
+    box-shadow: 0 0 15px rgb(230, 0, 199);
+}
+
+.dropdown li:hover {
+    box-shadow: 0 0 10px rgb(243, 136, 48);
+    background-color: rgb(238, 255, 0);
+}
