@@ -1,18 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import "./Animation.css"
-import {
-  Scene, 
-  PerspectiveCamera, 
-  WebGLRenderer, 
-  SphereGeometry, 
-  TextureLoader, 
-  MeshBasicMaterial, 
-  Mesh, 
-  Vector2, 
-  Vector3,
-  PlaneGeometry,
-  DoubleSide
-} from 'three';
+import {Scene, PerspectiveCamera, WebGLRenderer, SphereGeometry, TextureLoader, MeshBasicMaterial, Mesh, Vector2, Vector3} from 'three';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
@@ -21,8 +9,6 @@ import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPa
 
 const earth_surface = "earth_surface.jpg"
 const moon_surface = "moon_surface.jpg"
-const gratz_image = "bursdag_mamma.png"
-const face_image = "mamma_2010.png"
 
 const Animation = () => {
   const sceneRef = useRef(null);
@@ -50,27 +36,11 @@ const Animation = () => {
     const moon_sphere = new Mesh(moon_geometry, moon_material);
     scene.add(moon_sphere);
 
-    // Face
-    const face_geometry = new PlaneGeometry(1, 1); // Width, Height
-    const face_texture = textureLoader.load(face_image);
-    const face_material = new MeshBasicMaterial({ map: face_texture });
-    const face = new Mesh(face_geometry, face_material);
-    face.position.set(0,1,1);
-    scene.add(face);
-
-    // Gratz
-    const gratz_geometry = new PlaneGeometry(2, 1.2); // Width, Height
-    const gratz_texture = textureLoader.load(gratz_image);
-    const gratz_material = new MeshBasicMaterial({ map: gratz_texture });
-    const gratz = new Mesh(gratz_geometry, gratz_material);
-    gratz.position.set(0,2,1);
-    scene.add(gratz);
-
 
     // Create the bloom effect
     const bloomEffect = new UnrealBloomPass(new Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
     bloomEffect.threshold = 0; // Controls the brightness threshold for glowing
-    bloomEffect.strength = 0.3; // Controls the strength/intensity of the glow effect
+    bloomEffect.strength = 1; // Controls the strength/intensity of the glow effect
     bloomEffect.radius = 2; // Controls the size/spread of the glow effect
 
     // Setup the post-processing composer
@@ -96,8 +66,7 @@ const Animation = () => {
       moon_sphere.rotation.y += 0.01;
       earth_sphere.rotation.x += 0.005;
       earth_sphere.rotation.y += 0.01;
-      gratz.position.set(x/2,y/2,z/2);
-      
+
       composer.render();
       frameId = requestAnimationFrame(animate);
     };
