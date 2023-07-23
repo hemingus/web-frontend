@@ -4,24 +4,28 @@ import {
   Scene, 
   PerspectiveCamera, 
   WebGLRenderer, 
-  SphereGeometry, 
+  SphereGeometry,
+  BoxGeometry,
+  CircleGeometry,
+  BackSide,
   TextureLoader, 
   MeshBasicMaterial, 
   Mesh, 
   Vector2, 
   Vector3,
-  PlaneGeometry
+  LinearSRGBColorSpace
 } from 'three';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
 
 
-
+const background = "deep_dark_space.png"
 const earth_surface = "earth_surface.jpg"
 const moon_surface = "moon_surface.jpg"
-const gratz_image = "bursdag_mamma.png"
-const face_image = "mamma_2010.png"
+const oasis_image = "music_g_space.png"
+const male_image = "male_cosmos.png"
+const female_image = "female_cosmos.png"
 
 const Animation = () => {
   const sceneRef = useRef(null);
@@ -32,11 +36,37 @@ const Animation = () => {
     const camera = new PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0x000000);
+    renderer.outputColorSpace = LinearSRGBColorSpace;
     sceneRef.current.appendChild(renderer.domElement);
+    const textureLoader = new TextureLoader();
+
+    // Background
+    const backgroundTexture = textureLoader.load(background);
+    backgroundTexture.colorSpace = LinearSRGBColorSpace; // Set encoding to Linear
+    
+
+    scene.background = backgroundTexture;
+    const cubeGeometry = new BoxGeometry(10, 10, 10);
+
+    // Set the cube material to use the background texture
+    const cubeMaterial = [
+      new MeshBasicMaterial({ map: backgroundTexture, side: BackSide }), // Right side
+      new MeshBasicMaterial({ map: backgroundTexture, side: BackSide }), // Left side
+      new MeshBasicMaterial({ map: backgroundTexture, side: BackSide }), // Top side
+      new MeshBasicMaterial({ map: backgroundTexture, side: BackSide }), // Bottom side
+      new MeshBasicMaterial({ map: backgroundTexture, side: BackSide }), // Front side
+      new MeshBasicMaterial({ map: backgroundTexture, side: BackSide })  // Back side
+    ];
+
+    // Create the cube mesh
+    const cubeMesh = new Mesh(cubeGeometry, cubeMaterial);
+
+    // Add the cube to the scene
+    scene.add(cubeMesh);
 
     // Earth sphere
     const earth_geometry = new SphereGeometry(0.5, 32, 32);
-    const textureLoader = new TextureLoader();
     const earth_texture = textureLoader.load(earth_surface);
     const earth_material = new MeshBasicMaterial({ map: earth_texture });
     const earth_sphere = new Mesh(earth_geometry, earth_material);
@@ -50,26 +80,41 @@ const Animation = () => {
     scene.add(moon_sphere);
 
     // Face
-    const face_geometry = new PlaneGeometry(1, 1); // Width, Height
-    const face_texture = textureLoader.load(face_image);
-    const face_material = new MeshBasicMaterial({ map: face_texture });
-    const face = new Mesh(face_geometry, face_material);
-    face.position.set(0,1,1);
-    scene.add(face);
+    const face_geometry = new CircleGeometry(0.3, 32); // Width, Height
 
-    // Gratz
-    const gratz_geometry = new PlaneGeometry(2, 1.2); // Width, Height
-    const gratz_texture = textureLoader.load(gratz_image);
-    const gratz_material = new MeshBasicMaterial({ map: gratz_texture });
-    const gratz = new Mesh(gratz_geometry, gratz_material);
-    gratz.position.set(0,2,1);
-    scene.add(gratz);
+
+    // Male cosmos
+    const male_texture = textureLoader.load(male_image);
+    const male_material = new MeshBasicMaterial({ map: male_texture, transparent: true });
+    const male = new Mesh(face_geometry, male_material);
+    male.position.set(0,1,1);
+    
+
+    // Female cosmos
+    const female_texture = textureLoader.load(female_image);
+    const female_material = new MeshBasicMaterial({ map: female_texture, transparent: true });
+    const female = new Mesh(face_geometry, female_material);
+    female.position.set(0,1,1);
+    female.position.z = 0.99;
+    female.rotation.y = 3.14;
+
+    // Add faces to scene
+    scene.add(male);
+    scene.add(female);
+
+    // Oasis image
+    const oasis_geometry = new CircleGeometry(0.3, 32); // Width, Height
+    const oasis_texture = textureLoader.load(oasis_image);
+    const oasis_material = new MeshBasicMaterial({ map: oasis_texture });
+    const oasis = new Mesh(oasis_geometry, oasis_material);
+    oasis.position.set(0,0,0);
+    scene.add(oasis);
 
 
     // Create the bloom effect
     const bloomEffect = new UnrealBloomPass(new Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
     bloomEffect.threshold = 0; // Controls the brightness threshold for glowing
-    bloomEffect.strength = 0.3; // Controls the strength/intensity of the glow effect
+    bloomEffect.strength = 0.5; // Controls the strength/intensity of the glow effect
     bloomEffect.radius = 2; // Controls the size/spread of the glow effect
 
     // Setup the post-processing composer
@@ -95,7 +140,9 @@ const Animation = () => {
       moon_sphere.rotation.y += 0.01;
       earth_sphere.rotation.x += 0.005;
       earth_sphere.rotation.y += 0.01;
-      gratz.position.set(x/2,y/2,z/2);
+      oasis.position.set(x/8,(y/8)+2,z/8);
+      male.rotation.y += 0.01;
+      female.rotation.y += 0.01;
       
       composer.render();
       frameId = requestAnimationFrame(animate);
