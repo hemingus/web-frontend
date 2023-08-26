@@ -7,19 +7,20 @@ import {useState, useEffect} from 'react'
 
 const StarwarsCharacterContainer = () => {
 
+    const pageSize = 10; // number of character info-cards showing on the page at a time.
+
     useEffect(() => {
         const getChars = async (url = "https://swapi.dev/api/people", accData = []) => {
             try {
             const res = await axios.get(url);
-            if (res.data.next == null) {
-                accData = accData.concat(res.data.results);
-                setChars(accData);
-                setLoading(false); 
-            }
-            else {
-                accData = accData.concat(res.data.results);
+            accData = accData.concat(res.data.results);
+            setChars(accData);
+            if (res.data.next != null) {
                 getChars(res.data.next, accData);
-            }}
+            } else {
+                setLoading(false)
+            }
+            }
             catch (err) {
             alert(err.message);
             }
@@ -31,8 +32,8 @@ const StarwarsCharacterContainer = () => {
     const [inputText, setInputText] = useState("");
     const [loading, setLoading] = useState(true);
     const [showNumber, setShowNumber] = useState(0);
-    const pageSize = 12;
     
+
     const handleSearchInput = (event) => {
         setInputText(event.target.value);
         setShowNumber(0);
@@ -47,22 +48,22 @@ const StarwarsCharacterContainer = () => {
         }
     }
 
-    const characterCards = () => {
+    const loadingText = () => {
         if (loading) {
             return (
-                <div className="starwarsCharacterContainer">
                 <p className="loading">Loading...</p>
-                </div>
             )
-        }
-        else {
-            return (
-            <div className="starwarsCharacterContainer">
-            {filterChars().slice(showNumber, showNumber+pageSize).map((chars)=>(<StarwarsCharacter key={chars.name} name={chars.name} height={chars.height} mass={chars.mass} 
-            birth_year={chars.birth_year} eye_color={chars.eye_color} gender={chars.gender} hair_color={chars.hair_color} skin_color={chars.skin_color}/>))}
-            </div> 
-            )
-        }  
+        } 
+        return <p>Loading complete</p>
+    }
+
+    const characterCards = () => {
+        return (
+        <div className="starwarsCharacterContainer">
+        {filterChars().slice(showNumber, showNumber+pageSize).map((chars)=>(<StarwarsCharacter key={chars.name} name={chars.name} height={chars.height} mass={chars.mass} 
+        birth_year={chars.birth_year} eye_color={chars.eye_color} gender={chars.gender} hair_color={chars.hair_color} skin_color={chars.skin_color}/>))}
+        </div> 
+        ) 
     }
 
     const handleSortByHeight = () => {
@@ -113,7 +114,8 @@ const StarwarsCharacterContainer = () => {
         
         return (
             <div className="pageInfo">
-            <p style={loading ? {opacity: 0}:{opacity: 1}}>{numberOfChars} results</p>
+            {loadingText()}
+            <p>{numberOfChars} results</p>
             <p style={numberOfChars <= 0 ? {opacity: 0}:{opacity: 1}}>{fromNumber} - {toNumber}</p>
             <button className={showNumber <= 0 ? "pageButtonLocked":"pageButton"} onClick={showPreviousPage}>Previous</button>
             <button className={showNumber + pageSize >= numberOfChars ? "pageButtonLocked":"pageButton"} onClick={showNextPage}>Next page</button>

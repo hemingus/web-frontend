@@ -83,8 +83,8 @@
 }
 
 .char {
-    min-width: 300px;
-    max-width: 300px;
+    min-width: max(300px, 18vw);
+    max-width: max(300px, 18vw);
     flex: 1 0 12%;
 }
 
