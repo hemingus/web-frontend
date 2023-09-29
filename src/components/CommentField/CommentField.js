@@ -49,6 +49,7 @@ const CommentField = () => {
             <ul className="CommentList">{comments.map(comment => <li className="CommentObjects">
                 <h5 className="Names">{comment.name + " wrote: "}</h5>
                 <p className="Comments">{comment.commentBody}</p>
+                <p className="Timestamps">{comment.timestamp}</p>
             </li>)}</ul>
         </div>
         </>
