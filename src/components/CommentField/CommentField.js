@@ -20,6 +20,13 @@ const CommentField = () => {
     useEffect(() => {
         getComments();
     }, [])
+    
+    function convertUtcToLocalTime(utcTimeString) {
+        const utcDate = new Date(utcTimeString);
+        const localOffset = utcDate.getTimezoneOffset();
+        const localDate = new Date(utcDate.getTime() - localOffset * 60000);
+        return localDate.toLocaleString();
+    }
 
     const handleSubmit = async (event, url = "https://hemingmusicapi.azurewebsites.net/Comment") => {
         event.preventDefault()
@@ -49,7 +56,7 @@ const CommentField = () => {
             <ul className="CommentList">{comments.map(comment => <li className="CommentObjects">
                 <h5 className="Names">{comment.name + " wrote: "}</h5>
                 <p className="Comments">{comment.commentBody}</p>
-                <p className="Timestamps">{comment.timestamp}</p>
+                <p className="Timestamps">{convertUtcToLocalTime(comment.timestamp)}</p>
             </li>)}</ul>
         </div>
         </>
