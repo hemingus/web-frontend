@@ -43,22 +43,29 @@
 .CommentObjects {
     display: block;
     border-block: solid;
-    margin-right: 20px;
-    margin-top: 10px;
     max-width: auto;
     background-color: rgb(25, 0, 67);
     border-color:rgb(91, 118, 138);
     border-width: 3px;
     border-radius: 5px;
+    margin-bottom: 20px;
+    margin-right: 20px;
     padding: 10px 10px 10px 10px;
 }
 
 .Names {
-    color: yellowgreen;
+    color: rgb(79, 250, 0);
+    font-family: sans-serif;
+    font-style: bold;
+    font-size: 20px;
+    
 }
 
 .Comments {
-    color: rgb(79, 250, 0);
+    color: rgb(255, 255, 238);
+    font-family:'Franklin Gothic Medium';
+    font-style: italic;
+    font-size: 16px;
 }
 
 .Timestamps {

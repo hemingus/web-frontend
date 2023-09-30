@@ -20,7 +20,7 @@ const CommentField = () => {
     useEffect(() => {
         getComments();
     }, [])
-    
+
     function convertUtcToLocalTime(utcTimeString) {
         const utcDate = new Date(utcTimeString);
         const localOffset = utcDate.getTimezoneOffset();
@@ -54,7 +54,7 @@ const CommentField = () => {
         <div>
             <h1 className="CommentHeader">Comments</h1>
             <ul className="CommentList">{comments.map(comment => <li className="CommentObjects">
-                <h5 className="Names">{comment.name + " wrote: "}</h5>
+                <h5 className="Names">{comment.name}<span className="Comments"> wrote:</span></h5>
                 <p className="Comments">{comment.commentBody}</p>
                 <p className="Timestamps">{convertUtcToLocalTime(comment.timestamp)}</p>
             </li>)}</ul>
