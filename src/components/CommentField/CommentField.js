@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import "./CommentField.css"
 import {useState, useEffect} from 'react'
+import { utcToLocalTime } from "../../utilities/DateTimeUtilities"
 
 const CommentField = () => {
 
@@ -21,12 +22,6 @@ const CommentField = () => {
         getComments();
     }, [])
 
-    function convertUtcToLocalTime(utcTimeString) {
-        const utcDate = new Date(utcTimeString);
-        const localOffset = utcDate.getTimezoneOffset();
-        const localDate = new Date(utcDate.getTime() - localOffset * 60000);
-        return localDate.toLocaleString();
-    }
 
     const handleSubmit = async (event, url = "https://hemingmusicapi.azurewebsites.net/Comment") => {
         event.preventDefault()
@@ -56,7 +51,7 @@ const CommentField = () => {
             <ul className="CommentList">{comments.map(comment => <li className="CommentObjects">
                 <h5 className="Names">{comment.name}<span className="Comments"> wrote:</span></h5>
                 <p className="Comments">{comment.commentBody}</p>
-                <p className="Timestamps">{convertUtcToLocalTime(comment.timestamp)}</p>
+                <p className="Timestamps">{utcToLocalTime(comment.timestamp)}</p>
             </li>)}</ul>
         </div>
         </>
