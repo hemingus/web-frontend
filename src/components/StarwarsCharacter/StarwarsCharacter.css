@@ -53,10 +53,10 @@
 @keyframes budge {
     50% {
         background-color: aquamarine;
+        border-bottom-color: aquamarine;
     }
     100% {
-        border-bottom: none;
-        border-color:aquamarine;
+        border-color: aquamarine;
         color:rgb(130, 197, 5);
         background-color: rgb(20, 61, 85);
     }

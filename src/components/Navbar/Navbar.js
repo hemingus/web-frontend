@@ -14,6 +14,15 @@ export default function Navbar() {
       "route": "/characters"}
     ]
 
+    const VideoDropdownProps = [
+    {
+      "title": "Music videos",
+      "route": "/musicvideos"},
+    {
+      "title": "App videos",
+      "route": "/appvideos"}
+    ]
+
 
       
     return ( 
@@ -22,7 +31,7 @@ export default function Navbar() {
           Hemings Music Space
         </Link>
         <ul>
-          <CustomLink to="/videos" children="Videos"></CustomLink>
+          <Dropdown title="Videos" elements={VideoDropdownProps}></Dropdown>
           <CustomLink to="/animation">3D Animation</CustomLink>
           <Dropdown title="Starwars API" elements={StarwarsDropdownProps}/>
         </ul>
