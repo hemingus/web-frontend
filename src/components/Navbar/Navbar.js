@@ -31,6 +31,7 @@ export default function Navbar() {
           Hemings Music Space
         </Link>
         <ul>
+          <CustomLink to="/register">Register</CustomLink>
           <Dropdown title="Videos" elements={VideoDropdownProps}></Dropdown>
           <CustomLink to="/animation">3D Animation</CustomLink>
           <Dropdown title="Starwars API" elements={StarwarsDropdownProps}/>
