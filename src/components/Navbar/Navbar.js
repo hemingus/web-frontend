@@ -23,6 +23,16 @@ export default function Navbar() {
       "route": "/appvideos"}
     ]
 
+    const RegisterDropdownProps = [
+    {
+      "title": "Register",
+      "route": "/register"},
+    {
+      "title": "Log in",
+      "route": "/login"}
+    ]
+
+
 
       
     return ( 
@@ -31,7 +41,8 @@ export default function Navbar() {
           Hemings Music Space
         </Link>
         <ul>
-          <Dropdown title="Videos" elements={VideoDropdownProps}></Dropdown>
+          <Dropdown title="User" elements={RegisterDropdownProps}/>
+          <Dropdown title="Videos" elements={VideoDropdownProps}/>
           <CustomLink to="/animation">3D Animation</CustomLink>
           <Dropdown title="Starwars API" elements={StarwarsDropdownProps}/>
         </ul>

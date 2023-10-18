@@ -8,11 +8,12 @@
     background-color: rgb(30, 23, 59);
     color: rgb(0, 255, 234);
     font-style: italic;
-    font-size: calc(1vh + 1vw);
+    font-size: max(20px, calc(1vh + 1vw));
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 5%;
+    z-index: 1;
 }
 
 .nav a {
@@ -29,7 +30,7 @@
     list-style: none;
     display: flex;
     justify-content: space-evenly;
-    flex-wrap: wrap 4;
+    flex-wrap: wrap;
     text-align: left;
 }
 
