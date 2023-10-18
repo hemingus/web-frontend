@@ -20,7 +20,7 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
 
 
-const background = "deep_dark_space.png"
+const background = "DALL-E_generated_SPACE.png"
 const earth_surface = "earth_surface.jpg"
 const moon_surface = "moon_surface.jpg"
 const oasis_image = "music_g_space.png"
@@ -31,11 +31,12 @@ const Animation = () => {
   const sceneRef = useRef(null);
 
   useEffect(() => {
-    let frameId;
     const scene = new Scene();
-    const camera = new PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const camera = new PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 2000);
     const renderer = new WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+  
+    let frameId;
+    renderer.setSize(window.innerWidth*0.99, window.innerHeight*0.99);
     renderer.setClearColor(0x000000);
     renderer.outputColorSpace = LinearSRGBColorSpace;
     sceneRef.current.appendChild(renderer.domElement);
@@ -45,9 +46,8 @@ const Animation = () => {
     const backgroundTexture = textureLoader.load(background);
     backgroundTexture.colorSpace = LinearSRGBColorSpace; // Set encoding to Linear
     
-
     scene.background = backgroundTexture;
-    const cubeGeometry = new BoxGeometry(10, 10, 10);
+    const cubeGeometry = new BoxGeometry(1000, 1000, 1000);
 
     // Set the cube material to use the background texture
     const cubeMaterial = [
@@ -82,14 +82,12 @@ const Animation = () => {
     // Face
     const face_geometry = new CircleGeometry(0.3, 32); // Width, Height
 
-
     // Male cosmos
     const male_texture = textureLoader.load(male_image);
     const male_material = new MeshBasicMaterial({ map: male_texture, transparent: true });
     const male = new Mesh(face_geometry, male_material);
     male.position.set(0,1,1);
-    
-
+  
     // Female cosmos
     const female_texture = textureLoader.load(female_image);
     const female_material = new MeshBasicMaterial({ map: female_texture, transparent: true });
@@ -110,7 +108,6 @@ const Animation = () => {
     oasis.position.set(0,0,0);
     scene.add(oasis);
 
-
     // Create the bloom effect
     const bloomEffect = new UnrealBloomPass(new Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
     bloomEffect.threshold = 0; // Controls the brightness threshold for glowing
@@ -122,20 +119,21 @@ const Animation = () => {
     composer.addPass(new RenderPass(scene, camera));
     composer.addPass(bloomEffect);
 
-    camera.position.z = 5;
+    camera.position.z = 0;
 
     const center = new Vector3(0, 0, 0); // Center of the circular trajectory
-    const radius = 2; // Radius of the circular trajectory
-    const speed = 0.3; // Speed of the sphere's movement
+    const radius = 8; // Radius of the circular trajectory
+    const speed = 0.1; // Speed of the sphere's movement
 
     const animate = () => {
       const time = Date.now() * 0.001; // Current time in seconds
 
-      const x = center.x + Math.cos(time * speed) * (2*radius);
-      const y = center.y + 0.2*(Math.sin(time * speed) * radius);
-      const z = center.z - 2*(Math.sin(time * speed) * radius);
+      const x = center.x + Math.cos(time * speed) * (0.5*radius);
+      const y = center.y + Math.sin(time * speed) * (0.5*radius);
+      const z = center.z - Math.sin(time * speed) * radius;
 
       moon_sphere.position.set(x, y, z);
+      const over_the_moon = new Vector3(1 - moon_sphere.position.x * 0.1, 1 - moon_sphere.position.y * 0.1, 1 - moon_sphere.position.z);
       moon_sphere.rotation.x += 0.01;
       moon_sphere.rotation.y += 0.01;
       earth_sphere.rotation.x += 0.005;
@@ -143,11 +141,15 @@ const Animation = () => {
       oasis.position.set(x/8,(y/8)+2,z/8);
       male.rotation.y += 0.01;
       female.rotation.y += 0.01;
+
+      camera.position.lerp(over_the_moon, 0.05);
+      
+      camera.lookAt(center);
       
       composer.render();
       frameId = requestAnimationFrame(animate);
     };
-
+    
     animate();
 
     return () => {
@@ -155,7 +157,7 @@ const Animation = () => {
     };
   }, []);
 
-  return <div ref={sceneRef} />;
+  return <div className="earth-moon-animation" ref={sceneRef} />;
 };
 
 export default Animation;
