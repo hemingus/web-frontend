@@ -7,6 +7,7 @@ import AppVideoPage from './pages/AppVideoPage';
 import CharacterPage from './pages/CharacterPage';
 import AnimationPage from './pages/AnimationPage';
 import RegisterPage from './pages/RegisterPage';
+import LoginPage from './pages/LoginPage';
 import { Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/planets" element={<PlanetPage />} />
           <Route path="/musicvideos" element={<MusicVideoPage />} />
           <Route path="/appvideos" element={<AppVideoPage />} />

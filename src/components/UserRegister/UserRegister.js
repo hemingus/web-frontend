@@ -90,7 +90,7 @@ const UserRegister = () => {
             onClick={handleSubmit}
             />
         }
-        return <span className="register-submit-button-hidden"/>
+        return <span className="register-submit-button-hidden">Submit</span>
     }
 
     if (success) {
