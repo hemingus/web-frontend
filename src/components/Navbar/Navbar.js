@@ -31,7 +31,7 @@ export default function Navbar() {
       "title": "Log in",
       "route": "/login"}
     ]
-      
+    
     return ( 
       <nav className="nav">
         <Link to="/" className="site-title" style={{color: 'greenyellow'}}>
