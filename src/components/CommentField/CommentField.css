@@ -71,3 +71,28 @@
 .Timestamps {
     color: rgb(196, 221, 82);
 }
+
+.RemoveButton {
+    background: linear-gradient(darkred, black);
+    color: red;
+    border-radius: 5px;
+}
+
+.RemoveButton:hover {
+    cursor: pointer;
+    box-shadow: 0 0 5px red;
+}
+
+.DeleteCommentForm {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+}

@@ -22,6 +22,8 @@ const CommentField = () => {
         getComments();
     }, [])
 
+    
+
 
     const handleSubmit = async (event, url = "https://hemingmusicapi.azurewebsites.net/Comment") => {
         event.preventDefault()
@@ -38,6 +40,54 @@ const CommentField = () => {
         }
     }
 
+    const removeComment = async (id) => {
+        await axios.delete(`https://hemingmusicapi.azurewebsites.net/Comment/${id}`)
+            .then(response => {
+                alert("comment deleted!")
+                console.log(response)
+                getComments()
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+
+    const handleRemoveComment = (id) => {
+        let controlValue = document.getElementById("delete-comment").value
+        if (controlValue && controlValue === "Arin") {
+            removeComment(id)
+        }
+        else {
+            alert("wrong password")    
+        }
+        setShowForm(false)
+    }
+
+    const [showForm, setShowForm] = useState(false)
+    const [currentComment, setCurrentComment] = useState('')
+    const [password, setPassword] = useState('')
+
+    const removeCommentPasswordForm = (id) => {
+        if (showForm) {
+            return (
+                <div className="DeleteCommentForm">
+                    <form>
+                        <label>Enter password:</label>
+                        <input 
+                        type="password" 
+                        id="delete-comment" 
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        autoComplete="off"/>
+                        <button className="RemoveButton" onClick={() => handleRemoveComment(id)}>Delete</button>
+                    </form>
+                </div>
+            )
+        }
+        return <></>
+    }
+
+
     return (
         <>
         <form onSubmit={handleSubmit}>
@@ -48,12 +98,14 @@ const CommentField = () => {
         </form>
         <div>
             <h1 className="CommentHeader">Comments</h1>
-            <ul className="CommentList">{comments.map(comment => <li className="CommentObjects">
+            <ul className="CommentList">{comments.map((comment, index) => <li key={index} className="CommentObjects">
                 <h5 className="Names">{comment.name}<span className="Comments"> wrote:</span></h5>
                 <p className="Comments">{comment.commentBody}</p>
                 <p className="Timestamps">{utcToLocalTime(comment.timestamp)}</p>
+                <button hidden={showForm} className="RemoveButton" onClick={() => {setShowForm(true); setCurrentComment(comment.id)}}>Remove</button>
             </li>)}</ul>
         </div>
+        {removeCommentPasswordForm(currentComment)}
         </>
     )
 }
