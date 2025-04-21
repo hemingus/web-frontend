@@ -12,7 +12,7 @@ const images = ["gulkins1.jpg", "gulkins2.jpg", "hemingdrums.jpg"];
 export default function HomePage() {
     return (
         <div className="HomePage">
-            <img src="onkel_heming_trafikkskole.png"/>
+            <img src="onkel_heming_trafikkskole.png" alt="picture: onkel heming trafikkskole"/>
             <Header />
             <MainMenu />
             <GuitarTuner />
